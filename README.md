@@ -59,8 +59,7 @@ Dado que las cuentas *Student Lab* no poseen privilegios para crear o gestionar 
 5. En la sección **Permissions**, selecciona:
    - **Create a new role with basic Lambda permissions**
 
----
-
+---  
 ### 🖼️ Referencia visual
 <p><img src="docs/01.png" alt="Creación Lambda" width="80%"></p>    
 ---
@@ -78,20 +77,14 @@ La configuración se realiza desde la sección **Edit basic settings** de la con
 1. Accede a la función **`detection_faces`** previamente creada.  
 2. Haz clic en **Configuration → General configuration → Edit**.  
 3. Ajusta los siguientes parámetros:
-
-   | Parámetro | Valor | Descripción |
-   |------------|--------|-------------|
-   | **Memory (MB)** | 1280 | Proporciona un equilibrio adecuado entre rendimiento y costo; aumenta la CPU proporcionalmente. |
-   | **Ephemeral storage (/tmp)** | 512 MB | Espacio temporal suficiente para procesar imágenes durante la inferencia. |
-   | **Timeout** | 1 min 3 s | Evita cortes prematuros en ejecuciones de análisis más pesadas. |
-   | **Execution role** | `service-role/detection_faces-role-pkf5xv9u` | Permite registrar logs en CloudWatch y acceder a recursos necesarios. |
-
-4. Haz clic en **Save** para aplicar los cambios.
+   - **Memory (MB)**`1280`
+   - **Ephemeral storage (/tmp)** `512`
+   - **Timeout** `1 min`
+   -  **Execution role** `Create new role`
 
 ---
-
 ### 🖼️ Referencia visual
-![Configuración básica de Lambda](./docs/3.png)
+<p><img src="docs/3.png" alt="Configuración básica de Lambda" width="80%"></p>    
 
 ## Paso 3 — Crear y desplegar la API REST en AWS API Gateway
 
