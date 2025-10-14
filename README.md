@@ -164,7 +164,7 @@ Selecciona **Deploy API** para crear un entorno (`stage`) donde se habilitará l
 
 Haz clic en **Deploy**.
 <p align="center">
-  <img src="docs/8.png" alt="Desplegar API" width="70%">
+  <img src="docs/8.png" alt="Desplegar API" width="30%">
 </p>
 
 
