@@ -179,10 +179,11 @@ Una API REST pública en AWS API Gateway vinculada a la función Lambda `detecti
 - **Bucket:** `face-detection-s3-lusber`  
 - **Región:** `eu-west-3`  
 - **Acceso público:** bloqueado  
-- **Cifrado:** SSE-S3
-![Crear bucket](docs/9.png)
+- **Cifrado:** SSE-S3  
 
-![Configuración avanzada del bucket](docs/10.png)
+![Crear bucket](docs/9.png)  
+
+![Configuración avanzada del bucket](docs/10.png)  
 
 #### DynamoDB
 - **Tabla:** `faces`  
