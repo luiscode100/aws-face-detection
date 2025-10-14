@@ -174,7 +174,7 @@ Una API REST pública en AWS API Gateway vinculada a la función Lambda `detecti
 
 ### ☁️ Paso 4 — Configurar almacenamiento en S3 y DynamoDB
 
-#### S3
+#### Crear S3 Bucket
 - **Bucket:** `face-detection-s3-lusber`  
 - **Región:** `eu-west-3`  
 - **Acceso público:** bloqueado  
@@ -184,20 +184,18 @@ Una API REST pública en AWS API Gateway vinculada a la función Lambda `detecti
 
 ### 🖼️ Referencia visual
 
-<p><img src="docs/9.png" alt="Crear Bucket" width="80%"></p>  
----  
-<p><img src="docs/10.png" alt="Configuración avanzada del bucket" width="80%"></p>  
+<p><img src="docs/9.png" alt="Crear Bucket" width="80%"></p>   
 
-#### DynamoDB
+#### Crear DynamoDB
 - **Tabla:** `faces`  
 - **Partition key:** `face_id (String)`  
 - **Modo:** On-demand
 
-![Crear tabla DynamoDB](docs/12.png)  
+### 🖼️ Referencia visual   
+<p><img src="docs/12.png" alt="Crear tabla DynamoDB" width="80%"></p>   
 
-S3 almacena las imágenes y DynamoDB guarda los metadatos (ID y coordenadas de detección).  
-   
-![Tabla activa](docs/13.png)  
+<p><img src="docs/13.png" alt="Tabla Activa" width="80%"></p>    
+
 
 ---
 
