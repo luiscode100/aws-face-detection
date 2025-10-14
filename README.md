@@ -168,8 +168,5 @@ En este paso se preparan los servicios de almacenamiento del sistema. El objetiv
 ### 🖼️ Referencia visual   
 <p><img src="docs/12.png" alt="Crear tabla DynamoDB" width="80%"></p>   
 
-<p><img src="docs/13.png" alt="Tabla Activa" width="80%"></p>    
-
-
 ---
 
