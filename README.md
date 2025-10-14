@@ -170,3 +170,58 @@ En este paso se preparan los servicios de almacenamiento del sistema. El objetiv
 
 ---
 
+## 🖥️ Paso 5 — Crear instancia EC2 para generar la librería OpenCV
+
+### 🧩  Descripción
+
+En este paso se crea una instancia **Amazon EC2** que servirá para **instalar y empaquetar la librería OpenCV**, necesaria para la función Lambda.  
+El entorno de EC2 permite ejecutar comandos de instalación, comprimir los archivos y transferir el paquete final (`python.zip`) al bucket **S3**, desde donde se creará el *layer* de Lambda.
+
+---
+
+### 🧠 Configuración en la consola
+
+1. Accede al servicio **Amazon EC2**.  
+2. Haz clic en **Launch instance**. 
+3. En el campo **Name and tags**, asigna un nombre descriptivo:
+   - **Name:** `create-lib-opencv`
+4. En la sección **Application and OS Images (AMI)**, selecciona:
+   - **Imagen:** `Ubuntu Server 24.04 LTS (Free tier eligible)`  
+   - **Architecture:** `64-bit (x86)`
+5. En **Instance type**, selecciona:
+   - **t2.micro** *(apto para la capa gratuita)*
+
+---
+
+### 🖼️ Referencia visual
+<p align="center">
+  <img src="docs/23.png" alt="Crear instancia EC2 para OpenCV" width="80%">
+</p>
+
+---
+
+### 🔑 Configuración adicional
+
+6. En la sección **Key pair (login)**:
+   - Selecciona un par existente o crea uno nuevo, por ejemplo: `aws-key`
+7. En **Network settings**:
+   - Crea un nuevo **Security group**
+   - Activa **Allow SSH traffic from Anywhere (0.0.0.0/0)** *(solo para pruebas; restringir en producción)*
+8. En **Configure storage**:
+   - Ajusta el tamaño del volumen a **20 GiB**
+9. Finalmente, haz clic en **Launch instance** para iniciar la máquina.
+
+---
+
+### 🖼️ Referencia visual
+<p align="center">
+  <img src="docs/24.png" alt="Configuración de almacenamiento y red en EC2" width="80%">
+</p>
+
+---
+
+### ✅ Resultado esperado
+Una instancia **EC2 (Ubuntu 24.04)** creada y en ejecución, lista para conectarse vía **SSH** y proceder con la instalación de las dependencias de **OpenCV**.
+
+
+
