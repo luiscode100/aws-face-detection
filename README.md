@@ -39,7 +39,7 @@ Permite enviar imágenes a través de una API REST, detectar rostros y almacenar
 
 ---
 
-## 🧩 Paso 1 — Crear la función Lambda (entorno AWS Student)
+## 🧩 Paso 1 — Crear la función Lambda
 
 ### 📘 Descripción
 En este paso se crea una función **AWS Lambda** desde cero dentro del entorno educativo de **AWS Educate / AWS Academy**.  
