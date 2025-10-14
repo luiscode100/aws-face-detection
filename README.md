@@ -62,8 +62,7 @@ Dado que las cuentas *Student Lab* no poseen privilegios para crear o gestionar 
 ---
 
 ### 🖼️ Referencia visual
-![Creación Lambda](./docs/01.png)
-
+<p><img src="docs/01.png" alt="Creación Lambda" width="80%"></p>    
 ---
 
 ## Paso 2 — Configurar los parámetros básicos de la función Lambda
