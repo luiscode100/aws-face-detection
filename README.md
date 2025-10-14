@@ -124,10 +124,10 @@ Configura los detalles iniciales de la API:
 
 ---
 
-#### 5. Desplegar la API
+#### 3. Desplegar la API
 
 1. Selecciona **Deploy API** para crear un entorno (`stage`) donde se habilitará la API.
-   - **Stage* `New Stage`
+   - **Stage** `New Stage`
    - **Stage name** `development`
 
 2. Haz clic en **Deploy**.
@@ -143,8 +143,15 @@ Una API REST pública en AWS API Gateway vinculada a la función Lambda `detecti
 ---
 
 ### ☁️ Paso 4 — Configurar almacenamiento en S3 y DynamoDB
+### 🧩 Descripción
 
-#### Crear S3 Bucket
+En este paso se preparan los servicios de almacenamiento del sistema.  
+El objetivo es disponer de un espacio seguro para guardar las **imágenes procesadas** y una base de datos **NoSQL** para almacenar los **coordenadas de la detección facial**
+
+- **Amazon S3** se utiliza como repositorio de imágenes detectadas.  
+- **Amazon DynamoDB** almacena la información estructurada asociada a cada rostro detectado.    
+
+#### 1. Crear S3 Bucket
 - **Bucket:** `face-detection-s3-lusber`  
 - **Región:** `eu-west-3`  
 - **Acceso público:** bloqueado  
@@ -156,7 +163,7 @@ Una API REST pública en AWS API Gateway vinculada a la función Lambda `detecti
 
 <p><img src="docs/9.png" alt="Crear Bucket" width="80%"></p>   
 
-#### Crear DynamoDB
+#### 2. Crear DynamoDB
 - **Tabla:** `faces`  
 - **Partition key:** `face_id (String)`  
 - **Modo:** On-demand
