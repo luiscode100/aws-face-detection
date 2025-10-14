@@ -189,10 +189,10 @@ Una API REST pública en AWS API Gateway vinculada a la función Lambda `detecti
 - **Tabla:** `faces`  
 - **Partition key:** `face_id (String)`  
 - **Modo:** On-demand
-![Crear tabla DynamoDB](docs/12.png)
+![Crear tabla DynamoDB](docs/12.png)  
 
----  
 S3 almacena las imágenes y DynamoDB guarda los metadatos (ID y coordenadas de detección).  
-![Tabla activa](docs/13.png)
+![Tabla activa](docs/13.png)  
+
 ---
 
