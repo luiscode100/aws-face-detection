@@ -163,10 +163,7 @@ Selecciona **Deploy API** para crear un entorno (`stage`) donde se habilitará l
 | **Deployment description** | Primer despliegue de la API para pruebas. |
 
 Haz clic en **Deploy**.
-<p>
-  <img src="docs/8.png" alt="Desplegar API" width="50%">
-</p>
-
+<p><img src="docs/8.png" alt="Desplegar API" width="50%"></p>
 
 ---
 
@@ -189,7 +186,7 @@ Una API REST pública en AWS API Gateway vinculada a la función Lambda `detecti
 
 ![Crear bucket](docs/9.png)  
 ---  
-![Configuración avanzada del bucket](docs/10.png)  
+<p><img src="docs/10.png" alt="Configuración avanzada del bucket" width="50%"></p>  
 
 #### DynamoDB
 - **Tabla:** `faces`  
