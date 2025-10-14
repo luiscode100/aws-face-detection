@@ -194,9 +194,7 @@ El entorno de EC2 permite ejecutar comandos de instalación, comprimir los archi
 ---
 
 ### 🖼️ Referencia visual
-<p align="center">
-  <img src="docs/23.png" alt="Crear instancia EC2 para OpenCV" width="80%">
-</p>
+<p align="center"><img src="docs/23.png" alt="Crear instancia EC2 para OpenCV" width="80%"></p>
 
 ---
 
@@ -214,9 +212,7 @@ El entorno de EC2 permite ejecutar comandos de instalación, comprimir los archi
 ---
 
 ### 🖼️ Referencia visual
-<p align="center">
-  <img src="docs/24.png" alt="Configuración de almacenamiento y red en EC2" width="80%">
-</p>
+<p> <img src="docs/24.png" alt="Configuración de almacenamiento y red en EC2" width="80%"></p>
 
 ---
 
