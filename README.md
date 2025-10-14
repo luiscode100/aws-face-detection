@@ -64,17 +64,109 @@ Dado que las cuentas *Student Lab* no poseen privilegios para crear o gestionar 
 ### 🖼️ Referencia visual
 ![Creación Lambda](./docs/1.png)
 
-### Configuración básica de AWS Lambda
+---
 
-Se muestra la configuración base utilizada en la función **`detection_faces`**.
+## Paso 2 — Configurar los parámetros básicos de la función Lambda
 
-![Configuración básica de Lambda](./docs/3.png)
+### 🧩 Descripción
+En este paso se ajustan los **parámetros básicos de ejecución** de la función Lambda para optimizar el rendimiento y evitar interrupciones por falta de memoria o tiempo de ejecución.  
+La configuración se realiza desde la sección **Edit basic settings** de la consola AWS Lambda.
+
+---
+
+### ⚙️ Configuración en la consola
+
+1. Accede a la función **`detection_faces`** previamente creada.  
+2. Haz clic en **Configuration → General configuration → Edit**.  
+3. Ajusta los siguientes parámetros:
 
 ## Parámetros principales
 
 - **Memoria asignada:** 1280 MB  
 - **Almacenamiento temporal (/tmp):** 512 MB  
-- **Timeout:** 1 min 3 s  
+- **Timeout:** 1 min 0 s  
 - **Rol IAM asociado:** `service-role/detection_faces-role-pkf5xv9u`
 
+---
 
+### 🖼️ Referencia visual
+![Configuración básica de Lambda]](./docs/3.png)
+
+## Paso 3 — Crear y desplegar la API REST en AWS API Gateway
+
+### 🧩 Descripción
+En este paso se crea una **API REST** en **AWS API Gateway** para exponer la función Lambda `detection_faces` como un endpoint accesible vía HTTP.  
+Esta API permite enviar peticiones **POST** con datos de imagen para ser procesados mediante OpenCV dentro del entorno serverless.
+
+---
+### ⚙️ Configuración en la consola
+
+#### 1. Seleccionar tipo de API
+
+Accede a **API Gateway** y selecciona la opción **Build** dentro de **REST API** (no HTTP API ni WebSocket API).
+
+![Elegir tipo de API](./4.png)
+
+---
+#### 2. Crear la API REST
+
+Configura los detalles iniciales de la API:
+
+| Parámetro | Valor | Descripción |
+|------------|--------|-------------|
+| **API name** | `face_detection_api` | Nombre identificativo del servicio REST. |
+| **Endpoint type** | `Regional` | Optimiza el tráfico dentro de la región seleccionada. |
+| **IP address type** | `IPv4` | Permite el acceso público estándar. |
+
+Haz clic en **Create API**.
+
+![Crear API REST](./5.png)
+
+---
+
+#### 3. Crear el método de integración
+
+En los recursos de la API, crea un nuevo **método** y configura lo siguiente:
+
+| Campo | Valor | Descripción |
+|--------|--------|-------------|
+| **Method type** | `POST` | Define el tipo de solicitud HTTP que invocará la función. |
+| **Integration type** | `Lambda Function` | Conecta directamente la API con una función Lambda. |
+| **Lambda function** | `detection_faces` | ARN de la función creada en pasos anteriores. |
+| **Integration timeout** | `29000 ms` | Límite de tiempo de integración permitido. |
+
+Asegúrate de marcar la casilla **Grant API Gateway permission to invoke your Lambda function**, y haz clic en **Create method**.
+
+![Crear método POST](./6.png)
+
+---
+
+#### 4. Estructura de la integración
+
+Una vez creado el método, la consola mostrará el flujo de integración entre el cliente y Lambda:
+
+- **Client → Method Request → Integration Request → Lambda → Integration Response → Method Response**
+
+![Ejecución del método](./7.png)
+
+---
+
+#### 5. Desplegar la API
+
+Selecciona **Deploy API** para crear un entorno (`stage`) donde se habilitará la API.
+
+| Parámetro | Valor |
+|------------|--------|
+| **Stage name** | `development` |
+| **Deployment description** | Primer despliegue de la API para pruebas. |
+
+Haz clic en **Deploy**.
+
+![Desplegar API](./8.png)
+
+---
+
+### ✅ Resultado esperado
+Una API REST pública en AWS API Gateway vinculada a la función Lambda `detection_faces`, accesible mediante solicitudes POST para procesar imágenes.
+
+---
