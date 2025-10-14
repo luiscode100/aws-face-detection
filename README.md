@@ -163,8 +163,10 @@ Selecciona **Deploy API** para crear un entorno (`stage`) donde se habilitará l
 | **Deployment description** | Primer despliegue de la API para pruebas. |
 
 Haz clic en **Deploy**.
+<p align="center">
+  <img src="docs/8.png" alt="Desplegar API" width="70%">
+</p>
 
-![Desplegar API](./docs/8.png)
 
 ---
 
