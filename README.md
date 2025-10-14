@@ -80,12 +80,14 @@ La configuración se realiza desde la sección **Edit basic settings** de la con
 2. Haz clic en **Configuration → General configuration → Edit**.  
 3. Ajusta los siguientes parámetros:
 
-## Parámetros principales
+   | Parámetro | Valor | Descripción |
+   |------------|--------|-------------|
+   | **Memory (MB)** | 1280 | Proporciona un equilibrio adecuado entre rendimiento y costo; aumenta la CPU proporcionalmente. |
+   | **Ephemeral storage (/tmp)** | 512 MB | Espacio temporal suficiente para procesar imágenes durante la inferencia. |
+   | **Timeout** | 1 min 3 s | Evita cortes prematuros en ejecuciones de análisis más pesadas. |
+   | **Execution role** | `service-role/detection_faces-role-pkf5xv9u` | Permite registrar logs en CloudWatch y acceder a recursos necesarios. |
 
-- **Memoria asignada:** 1280 MB  
-- **Almacenamiento temporal (/tmp):** 512 MB  
-- **Timeout:** 1 min 0 s  
-- **Rol IAM asociado:** `service-role/detection_faces-role-pkf5xv9u`
+4. Haz clic en **Save** para aplicar los cambios.
 
 ---
 
