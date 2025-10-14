@@ -77,10 +77,10 @@ La configuración se realiza desde la sección **Edit basic settings** de la con
 1. Accede a la función **`detection_faces`** previamente creada.  
 2. Haz clic en **Configuration → General configuration → Edit**.  
 3. Ajusta los siguientes parámetros:
-   - **Memory (MB)**`1280`
-   - **Ephemeral storage (/tmp)** `512`
+   - **Memory (MB)**`1280 mb`
+   - **Ephemeral storage (/tmp)** `512 mb`
    - **Timeout** `1 min`
-   -  **Execution role** `Create new role`
+   -  **Execution role** `service-role/detection_faces-role-pkf5xv9u`
 
 ---
 ### 🖼️ Referencia visual
