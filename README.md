@@ -84,7 +84,7 @@ La configuración se realiza desde la sección **Edit basic settings** de la con
 
 ---
 ### 🖼️ Referencia visual
-<p><img src="docs/3.png" alt="Configuración básica de Lambda" width="80%"></p>    
+<p><img src="docs/02.png" alt="Configuración básica de Lambda" width="80%"></p>    
 
 ## Paso 3 — Crear y desplegar la API REST en AWS API Gateway
 
