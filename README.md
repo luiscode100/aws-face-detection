@@ -27,3 +27,41 @@ Permite enviar imágenes a través de una API REST, detectar rostros y almacenar
 - **OpenCV**  
 
 ---
+
+## ✨ Características
+
+- API REST para enviar imágenes.  
+- Procesamiento serverless en Lambda.  
+- Detección de rostros con **OpenCV (Haar Cascade)**.  
+- Almacenamiento seguro de imágenes en S3.  
+- Guardado de coordenadas en DynamoDB.  
+- Monitoreo de ejecución con CloudWatch.  
+
+---
+
+## 🧩 Paso 1 — Crear la función Lambda (entorno AWS Student)
+
+### 📘 Descripción
+En este paso se crea una función **AWS Lambda** desde cero dentro del entorno educativo de **AWS Educate / AWS Academy**.  
+Dado que las cuentas *Student Lab* no poseen privilegios para crear o gestionar roles de IAM, se utiliza un **rol preasignado** denominado *LabRole* (o equivalente).
+
+---
+
+### 🧠 Configuración en la consola
+
+1. Accede al servicio **AWS Lambda**.
+2. Haz clic en **Create function**.
+3. Selecciona la opción **Author from scratch**.
+4. Completa los campos de la sección **Basic information**:
+   - **Function name:** `detection_faces`
+   - **Runtime:** `Python 3.13`
+   - **Architecture:** `x86_64`
+5. En la sección **Permissions**, selecciona:
+   - **Create a new role with basic Lambda permissions**
+
+---
+
+### 🖼️ Referencia visual
+![Creación Lambda con rol de laboratorio](./docs/images/lambda_labrole_setup.png)
+
+
