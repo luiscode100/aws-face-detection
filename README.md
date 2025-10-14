@@ -115,7 +115,7 @@ Configura los detalles iniciales de la API:
    - **Integration type** `Lambda Function`
    - **Lambda function** `arn...:detection_faces`
    - **Integration timeout** `29000 ms`
-   - 
+
 2. Una vez creado el método, la consola mostrará el flujo de integración entre el cliente y Lambda:
    - **Client → Method Request → Integration Request → Lambda → Integration Response → Method Response**
 
@@ -126,15 +126,14 @@ Configura los detalles iniciales de la API:
 
 #### 5. Desplegar la API
 
-Selecciona **Deploy API** para crear un entorno (`stage`) donde se habilitará la API.
+1. Selecciona **Deploy API** para crear un entorno (`stage`) donde se habilitará la API.
+   - **Stage* `New Stage`
+   - **Stage name** `development`
 
-| Parámetro | Valor |
-|------------|--------|
-| **Stage name** | `development` |
-| **Deployment description** | Primer despliegue de la API para pruebas. |
+2. Haz clic en **Deploy**.
 
-Haz clic en **Deploy**.
-<p><img src="docs/8.png" alt="Desplegar API" width="50%"></p>
+### 🖼️ Referencia visual 
+<p><img src="docs/8.png" alt="Desplegar API" width="40%"></p>
 
 ---
 
