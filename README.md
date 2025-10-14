@@ -62,7 +62,7 @@ Dado que las cuentas *Student Lab* no poseen privilegios para crear o gestionar 
 ---
 
 ### 🖼️ Referencia visual
-![Creación Lambda](./docs/1.png)
+![Creación Lambda](./docs/01.png)
 
 ---
 
