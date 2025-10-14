@@ -86,7 +86,7 @@ La configuración se realiza desde la sección **Edit basic settings** de la con
 ### 🖼️ Referencia visual
 <p><img src="docs/02.png" alt="Configuración básica de Lambda" width="80%"></p>    
 
-## Paso 3 — Crear y desplegar la API REST en AWS API Gateway
+## Paso 3 — Desplegar la API REST en AWS API Gateway
 
 ### 🧩 Descripción
 En este paso se crea una **API REST** en **AWS API Gateway** para exponer la función Lambda `detection_faces` como un endpoint accesible vía HTTP.  
@@ -95,30 +95,20 @@ Esta API permite enviar peticiones **POST** con datos de imagen para ser procesa
 ---
 ### ⚙️ Configuración en la consola
 
-#### 1. Seleccionar tipo de API
+#### 1. Crear la API REST
+Configura los detalles iniciales de la API:  
 
-Accede a **API Gateway** y selecciona la opción **Build** dentro de **REST API** (no HTTP API ni WebSocket API).
+1. Accede a **API Gateway** y selecciona la opción **Build** dentro de **REST API** (no HTTP API ni WebSocket API).  
+2. Configura los detalles iniciales de la API:
+   - **API name** `face_detection_api`
+3. Haz clic en **Create API**.
+  
+### 🖼️ Referencia visual
+<p><img src="docs/5.png" alt="Crear API REST" width="80%"></p>    
 
-![Elegir tipo de API](./docs/4.png)
+---  
 
----
-#### 2. Crear la API REST
-
-Configura los detalles iniciales de la API:
-
-| Parámetro | Valor | Descripción |
-|------------|--------|-------------|
-| **API name** | `face_detection_api` | Nombre identificativo del servicio REST. |
-| **Endpoint type** | `Regional` | Optimiza el tráfico dentro de la región seleccionada. |
-| **IP address type** | `IPv4` | Permite el acceso público estándar. |
-
-Haz clic en **Create API**.
-
-![Crear API REST](./docs/5.png)
-
----
-
-#### 3. Crear el método de integración
+#### 2. Crear el método de integración
 
 En los recursos de la API, crea un nuevo **método** y configura lo siguiente:
 
@@ -135,7 +125,7 @@ Asegúrate de marcar la casilla **Grant API Gateway permission to invoke your La
 
 ---
 
-#### 4. Estructura de la integración
+#### 3. Estructura de la integración
 
 Una vez creado el método, la consola mostrará el flujo de integración entre el cliente y Lambda:
 
