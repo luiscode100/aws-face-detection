@@ -63,13 +63,12 @@ Dado que las cuentas *Student Lab* no poseen privilegios para crear o gestionar 
 
 ### 🖼️ Referencia visual
 ![Creación Lambda](./docs/1.png)
-![Creación Lambda](./docs/2.png)
 
 ### Configuración básica de AWS Lambda
 
 Se muestra la configuración base utilizada en la función **`detection_faces`**.
 
-![Configuración básica de Lambda](./3.png)
+![Configuración básica de Lambda](./docs/3.png)
 
 ## Parámetros principales
 
