@@ -184,9 +184,9 @@ Una API REST pública en AWS API Gateway vinculada a la función Lambda `detecti
 
 ### 🖼️ Referencia visual
 
-![Crear bucket](docs/9.png)  
+<p><img src="docs/9.png" alt="Crear Bucket" width="80%"></p>  
 ---  
-<p><img src="docs/10.png" alt="Configuración avanzada del bucket" width="50%"></p>  
+<p><img src="docs/10.png" alt="Configuración avanzada del bucket" width="80%"></p>  
 
 #### DynamoDB
 - **Tabla:** `faces`  
