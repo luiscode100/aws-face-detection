@@ -105,7 +105,7 @@ Esta API permite enviar peticiones **POST** con datos de imagen para ser procesa
 
 Accede a **API Gateway** y selecciona la opción **Build** dentro de **REST API** (no HTTP API ni WebSocket API).
 
-![Elegir tipo de API](./4.png)
+![Elegir tipo de API](./docs/4.png)
 
 ---
 #### 2. Crear la API REST
@@ -120,7 +120,7 @@ Configura los detalles iniciales de la API:
 
 Haz clic en **Create API**.
 
-![Crear API REST](./5.png)
+![Crear API REST](./docs/5.png)
 
 ---
 
@@ -137,7 +137,7 @@ En los recursos de la API, crea un nuevo **método** y configura lo siguiente:
 
 Asegúrate de marcar la casilla **Grant API Gateway permission to invoke your Lambda function**, y haz clic en **Create method**.
 
-![Crear método POST](./6.png)
+![Crear método POST](./docs/6.png)
 
 ---
 
@@ -147,7 +147,7 @@ Una vez creado el método, la consola mostrará el flujo de integración entre e
 
 - **Client → Method Request → Integration Request → Lambda → Integration Response → Method Response**
 
-![Ejecución del método](./7.png)
+![Ejecución del método](./docs/7.png)
 
 ---
 
@@ -162,7 +162,7 @@ Selecciona **Deploy API** para crear un entorno (`stage`) donde se habilitará l
 
 Haz clic en **Deploy**.
 
-![Desplegar API](./8.png)
+![Desplegar API](./docs/8.png)
 
 ---
 
