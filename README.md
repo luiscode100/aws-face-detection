@@ -144,9 +144,7 @@ Una API REST pública en AWS API Gateway vinculada a la función Lambda `detecti
 
 ### ☁️ Paso 4 — Configurar almacenamiento en S3 y DynamoDB
 ### 🧩 Descripción
-
-En este paso se preparan los servicios de almacenamiento del sistema.  
-El objetivo es disponer de un espacio seguro para guardar las **imágenes procesadas** y una base de datos **NoSQL** para almacenar los **coordenadas de la detección facial**
+En este paso se preparan los servicios de almacenamiento del sistema. El objetivo es disponer de un espacio seguro para guardar las **imágenes procesadas** y una base de datos **NoSQL** para almacenar los **coordenadas de la detección facial**
 
 - **Amazon S3** se utiliza como repositorio de imágenes detectadas.  
 - **Amazon DynamoDB** almacena la información estructurada asociada a cada rostro detectado.    
@@ -160,7 +158,6 @@ El objetivo es disponer de un espacio seguro para guardar las **imágenes proces
 ---  
 
 ### 🖼️ Referencia visual
-
 <p><img src="docs/9.png" alt="Crear Bucket" width="80%"></p>   
 
 #### 2. Crear DynamoDB
