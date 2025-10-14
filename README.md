@@ -179,19 +179,25 @@ Una API REST pública en AWS API Gateway vinculada a la función Lambda `detecti
 - **Bucket:** `face-detection-s3-lusber`  
 - **Región:** `eu-west-3`  
 - **Acceso público:** bloqueado  
-- **Cifrado:** SSE-S3  
+- **Cifrado:** SSE-S3
+  
+---  
+
+### 🖼️ Referencia visual
 
 ![Crear bucket](docs/9.png)  
-
+---  
 ![Configuración avanzada del bucket](docs/10.png)  
 
 #### DynamoDB
 - **Tabla:** `faces`  
 - **Partition key:** `face_id (String)`  
 - **Modo:** On-demand
+
 ![Crear tabla DynamoDB](docs/12.png)  
 
 S3 almacena las imágenes y DynamoDB guarda los metadatos (ID y coordenadas de detección).  
+   
 ![Tabla activa](docs/13.png)  
 
 ---
