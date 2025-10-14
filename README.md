@@ -172,3 +172,28 @@ Haz clic en **Deploy**.
 Una API REST pública en AWS API Gateway vinculada a la función Lambda `detection_faces`, accesible mediante solicitudes POST para procesar imágenes.
 
 ---
+
+### ☁️ Paso 4 — Configurar almacenamiento en S3 y DynamoDB
+
+#### S3
+
+![Crear bucket](docs/9.png)
+- **Bucket:** `face-detection-s3-lusber`  
+- **Región:** `eu-west-3`  
+- **Acceso público:** bloqueado  
+- **Cifrado:** SSE-S3
+
+![Configuración avanzada del bucket](docs/10.png)
+
+#### DynamoDB
+
+![Crear tabla DynamoDB](docs/12.png)
+- **Tabla:** `faces`  
+- **Partition key:** `face_id (String)`  
+- **Modo:** On-demand
+
+![Tabla activa](docs/13.png)
+
+> S3 almacena las imágenes y DynamoDB guarda los metadatos (ID y coordenadas de detección).
+
+---
