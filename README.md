@@ -54,7 +54,7 @@ Dado que las cuentas *Student Lab* no poseen privilegios para crear o gestionar 
 3. Selecciona la opción **Author from scratch**.
 4. Completa los campos de la sección **Basic information**:
    - **Function name:** `detection_faces`
-   - **Runtime:** `Python 3.13`
+   - **Runtime:** `Python 3.12`
    - **Architecture:** `x86_64`
 5. En la sección **Permissions**, selecciona:
    - **Create a new role with basic Lambda permissions**
@@ -62,6 +62,6 @@ Dado que las cuentas *Student Lab* no poseen privilegios para crear o gestionar 
 ---
 
 ### 🖼️ Referencia visual
-![Creación Lambda con rol de laboratorio](./docs/images/lambda_labrole_setup.png)
+![Creación Lambda](./docs/1.png)
 
 
