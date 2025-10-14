@@ -104,34 +104,23 @@ Configura los detalles iniciales de la API:
 3. Haz clic en **Create API**.
   
 ### 🖼️ Referencia visual
-<p><img src="docs/5.png" alt="Crear API REST" width="80%"></p>    
+<p><img src="docs/05.png" alt="Crear API REST" width="80%"></p>    
 
 ---  
 
 #### 2. Crear el método de integración
 
-En los recursos de la API, crea un nuevo **método** y configura lo siguiente:
+1. En los recursos de la API, crea un nuevo **método** y configura lo siguiente:
+   - **Method type** `POST`
+   - **Integration type** `Lambda Function`
+   - **Lambda function** `arn...:detection_faces`
+   - **Integration timeout** `29000 ms`
+   - 
+2. Una vez creado el método, la consola mostrará el flujo de integración entre el cliente y Lambda:
+   - **Client → Method Request → Integration Request → Lambda → Integration Response → Method Response**
 
-| Campo | Valor | Descripción |
-|--------|--------|-------------|
-| **Method type** | `POST` | Define el tipo de solicitud HTTP que invocará la función. |
-| **Integration type** | `Lambda Function` | Conecta directamente la API con una función Lambda. |
-| **Lambda function** | `detection_faces` | ARN de la función creada en pasos anteriores. |
-| **Integration timeout** | `29000 ms` | Límite de tiempo de integración permitido. |
-
-Asegúrate de marcar la casilla **Grant API Gateway permission to invoke your Lambda function**, y haz clic en **Create method**.
-
-![Crear método POST](./docs/6.png)
-
----
-
-#### 3. Estructura de la integración
-
-Una vez creado el método, la consola mostrará el flujo de integración entre el cliente y Lambda:
-
-- **Client → Method Request → Integration Request → Lambda → Integration Response → Method Response**
-
-![Ejecución del método](./docs/7.png)
+### 🖼️ Referencia visual 
+<p><img src="docs/06.png" alt="Crear método POST" width="80%"></p>   
 
 ---
 
