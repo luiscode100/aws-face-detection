@@ -1,9 +1,9 @@
-# 🖼️ Detector de Caras en AWS
+# Detector de Caras en AWS
 
 Este proyecto implementa un sistema **serverless de detección de caras** usando **AWS Lambda**, **API Gateway**, **S3** y **DynamoDB**, junto con la librería **OpenCV**.  
 Permite enviar imágenes a través de una API REST, detectar rostros y almacenar tanto las imágenes como las coordenadas de los rostros detectados en la nube.
 
-## 📊 Arquitectura
+## Arquitectura
 ![Arquitectura del proyecto](docs/diagram.png)
 
 **Flujo de datos:**
@@ -15,7 +15,7 @@ Permite enviar imágenes a través de una API REST, detectar rostros y almacenar
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - **AWS Lambda**  
 - **Amazon API Gateway**  
@@ -28,7 +28,7 @@ Permite enviar imágenes a través de una API REST, detectar rostros y almacenar
 
 ---
 
-## ✨ Características
+## Características
 
 - API REST para enviar imágenes.  
 - Procesamiento serverless en Lambda.  
@@ -36,188 +36,5 @@ Permite enviar imágenes a través de una API REST, detectar rostros y almacenar
 - Almacenamiento seguro de imágenes en S3.  
 - Guardado de coordenadas en DynamoDB.  
 - Monitoreo de ejecución con CloudWatch.  
-
----
-
-## 🧩 Paso 1 — Crear la función Lambda
-
-### 📘 Descripción
-En este paso se crea una función **AWS Lambda** desde cero dentro del entorno educativo de **AWS Educate / AWS Academy**.  
-Dado que las cuentas *Student Lab* no poseen privilegios para crear o gestionar roles de IAM, se utiliza un **rol preasignado** denominado *LabRole* (o equivalente).
-
----
-
-### 🧠 Configuración en la consola
-
-1. Accede al servicio **AWS Lambda**.
-2. Haz clic en **Create function**.
-3. Selecciona la opción **Author from scratch**.
-4. Completa los campos de la sección **Basic information**:
-   - **Function name:** `detection_faces`
-   - **Runtime:** `Python 3.12`
-   - **Architecture:** `x86_64`
-5. En la sección **Permissions**, selecciona:
-   - **Create a new role with basic Lambda permissions**
-
----  
-### 🖼️ Referencia visual
-<p><img src="docs/01.png" alt="Creación Lambda" width="80%"></p>    
----
-
-## Paso 2 — Configurar los parámetros básicos de la función Lambda
-
-### 🧩 Descripción
-En este paso se ajustan los **parámetros básicos de ejecución** de la función Lambda para optimizar el rendimiento y evitar interrupciones por falta de memoria o tiempo de ejecución.  
-La configuración se realiza desde la sección **Edit basic settings** de la consola AWS Lambda.
-
----
-
-### ⚙️ Configuración en la consola
-
-1. Accede a la función **`detection_faces`** previamente creada.  
-2. Haz clic en **Configuration → General configuration → Edit**.  
-3. Ajusta los siguientes parámetros:
-   - **Memory (MB)**`1280 mb`
-   - **Ephemeral storage (/tmp)** `512 mb`
-   - **Timeout** `1 min`
-   -  **Execution role** `service-role/detection_faces-role-pkf5xv9u`
-
----
-### 🖼️ Referencia visual
-<p><img src="docs/02.png" alt="Configuración básica de Lambda" width="80%"></p>    
-
-## Paso 3 — Desplegar la API REST en AWS API Gateway
-
-### 🧩 Descripción
-En este paso se crea una **API REST** en **AWS API Gateway** para exponer la función Lambda `detection_faces` como un endpoint accesible vía HTTP.  
-Esta API permite enviar peticiones **POST** con datos de imagen para ser procesados mediante OpenCV dentro del entorno serverless.
-
----
-### ⚙️ Configuración en la consola
-
-#### 1. Crear la API REST
-Configura los detalles iniciales de la API:  
-
-1. Accede a **API Gateway** y selecciona la opción **Build** dentro de **REST API** (no HTTP API ni WebSocket API).  
-2. Configura los detalles iniciales de la API:
-   - **API name** `face_detection_api`
-3. Haz clic en **Create API**.
-  
-### 🖼️ Referencia visual
-<p><img src="docs/05.png" alt="Crear API REST" width="80%"></p>    
-
----  
-
-#### 2. Crear el método de integración
-
-1. En los recursos de la API, crea un nuevo **método** y configura lo siguiente:
-   - **Method type** `POST`
-   - **Integration type** `Lambda Function`
-   - **Lambda function** `arn...:detection_faces`
-   - **Integration timeout** `29000 ms`
-
-2. Una vez creado el método, la consola mostrará el flujo de integración entre el cliente y Lambda:
-   - **Client → Method Request → Integration Request → Lambda → Integration Response → Method Response**
-
-### 🖼️ Referencia visual 
-<p><img src="docs/06.png" alt="Crear método POST" width="80%"></p>   
-
----
-
-#### 3. Desplegar la API
-
-1. Selecciona **Deploy API** para crear un entorno (`stage`) donde se habilitará la API.
-   - **Stage** `New Stage`
-   - **Stage name** `development`
-
-2. Haz clic en **Deploy**.
-
-### 🖼️ Referencia visual 
-<p><img src="docs/8.png" alt="Desplegar API" width="40%"></p>
-
----
-
-### ✅ Resultado esperado
-Una API REST pública en AWS API Gateway vinculada a la función Lambda `detection_faces`, accesible mediante solicitudes POST para procesar imágenes.
-
----
-
-### ☁️ Paso 4 — Configurar almacenamiento en S3 y DynamoDB
-### 🧩 Descripción
-En este paso se preparan los servicios de almacenamiento del sistema. El objetivo es disponer de un espacio seguro para guardar las **imágenes procesadas** y una base de datos **NoSQL** para almacenar los **coordenadas de la detección facial**
-
-- **Amazon S3** se utiliza como repositorio de imágenes detectadas.  
-- **Amazon DynamoDB** almacena la información estructurada asociada a cada rostro detectado.    
-
-#### 1. Crear S3 Bucket
-- **Bucket:** `face-detection-s3-lusber`  
-- **Región:** `eu-west-3`  
-- **Acceso público:** bloqueado  
-- **Cifrado:** SSE-S3
-  
----  
-
-### 🖼️ Referencia visual
-<p><img src="docs/9.png" alt="Crear Bucket" width="80%"></p>   
-
-#### 2. Crear DynamoDB
-- **Tabla:** `faces`  
-- **Partition key:** `face_id (String)`  
-- **Modo:** On-demand
-
-### 🖼️ Referencia visual   
-<p><img src="docs/12.png" alt="Crear tabla DynamoDB" width="80%"></p>   
-
----
-
-## 🖥️ Paso 5 — Crear instancia EC2 para generar la librería OpenCV
-
-### 🧩  Descripción
-
-En este paso se crea una instancia **Amazon EC2** que servirá para **instalar y empaquetar la librería OpenCV**, necesaria para la función Lambda.  
-El entorno de EC2 permite ejecutar comandos de instalación, comprimir los archivos y transferir el paquete final (`python.zip`) al bucket **S3**, desde donde se creará el *layer* de Lambda.
-
----
-
-### 🧠 Configuración en la consola
-
-1. Accede al servicio **Amazon EC2**.  
-2. Haz clic en **Launch instance**. 
-3. En el campo **Name and tags**, asigna un nombre descriptivo:
-   - **Name:** `create-lib-opencv`
-4. En la sección **Application and OS Images (AMI)**, selecciona:
-   - **Imagen:** `Ubuntu Server 24.04 LTS (Free tier eligible)`  
-   - **Architecture:** `64-bit (x86)`
-5. En **Instance type**, selecciona:
-   - **t2.micro** *(apto para la capa gratuita)*
-
----
-
-### 🖼️ Referencia visual
-<p align="center"><img src="docs/23.png" alt="Crear instancia EC2 para OpenCV" width="80%"></p>
-
----
-
-### 🔑 Configuración adicional
-
-6. En la sección **Key pair (login)**:
-   - Selecciona un par existente o crea uno nuevo, por ejemplo: `aws-key`
-7. En **Network settings**:
-   - Crea un nuevo **Security group**
-   - Activa **Allow SSH traffic from Anywhere (0.0.0.0/0)** *(solo para pruebas; restringir en producción)*
-8. En **Configure storage**:
-   - Ajusta el tamaño del volumen a **20 GiB**
-9. Finalmente, haz clic en **Launch instance** para iniciar la máquina.
-
----
-
-### 🖼️ Referencia visual
-<p> <img src="docs/24.png" alt="Configuración de almacenamiento y red en EC2" width="80%"></p>
-
----
-
-### ✅ Resultado esperado
-Una instancia **EC2 (Ubuntu 24.04)** creada y en ejecución, lista para conectarse vía **SSH** y proceder con la instalación de las dependencias de **OpenCV**.
-
 
 
